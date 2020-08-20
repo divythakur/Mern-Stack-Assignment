@@ -11,8 +11,8 @@ class App extends React.Component{
     }
   }
   componentDidMount(){
-    const url="https://backendpart.herokuapp.com/user";
-    request({url:url,json:true},(error,response)=>{
+    const urll="https://backendpart.herokuapp.com/user";
+    request({url:urll,json:true},(error,response)=>{
       const b=response.body;
       this.setState({det:b});
 

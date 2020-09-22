@@ -55,7 +55,7 @@ class App extends React.Component{
     
     axios({
         method: 'post',
-        url: 'http://localhost:8000/user/add',
+        url: 'https://tempback.herokuapp.com/user/add',
         data: body
     })
     .then(function (response) {
@@ -69,20 +69,21 @@ class App extends React.Component{
     
     loginclicked=(e)=>{
       e.preventDefault();
-      var url="http://localhost:8000/user/getone/"
+      var url="https://tempback.herokuapp.com/user/getone/"
       var em=this.state.loginemail;
        url=url+em
       axios.get(url)
       .then((response)=>{console.log(response.data)
-        if(response.data==={})
+        console.log(this.state.loginpassword)
+        if(response.data=={})
         {
-          alert("not registered")
+          console.log("not registered")
         }
         else if(response.data===this.state.loginpassword)
         {
           alert("success")
         }
-        else if( response.data!=={} && response.data!==this.state.loginpassword)
+        else if(  response.data!==this.state.loginpassword)
         {
           alert("not success")
         }
